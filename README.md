@@ -7,58 +7,29 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## How Run this Project
+1. cp .env.example .env
+2. php artisan key:generate
+3. run migration => php artisan migrate
+4. run seeder and factory => php artisan db:seed
+5. or run in once number 3 and 4 with php artisan migrate:refresh --seed
+6. php artisan serve
+   
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Explanation
+two role: admin and user
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    admin login:
+    
+    email "admin@admin.com" password "password"
+    
+    user login:
+    
+    email "user@user.com" password "password"
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Screenshoot
+![Screen Shot 2023-12-04 at 11 57 33](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/d9f99777-1b63-42ce-9d84-de26918e7f5b)
+![Screen Shot 2023-12-04 at 13 44 57](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/8070c195-99a7-49e1-86cf-651eae4fa522)
+![Screen Shot 2023-12-04 at 11 58 17](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/034781e1-0bcd-441b-be78-7bb8731b1206)
+![Screen Shot 2023-12-04 at 11 57 46](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/6ec8960e-1dba-4150-94bd-a6dacbca4ef4)
+![Screen Shot 2023-12-04 at 11 57 39](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/2051a646-bd0b-498b-94e6-132bf62b5a3b)
