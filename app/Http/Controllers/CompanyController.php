@@ -39,6 +39,20 @@ class CompanyController extends Controller
           return view('user.company.company', compact('company'));
     }
 
+    public function view_user(Request $request)
+    {
+          //medapatkan semua data company
+          $company = Company::all();
+          //jika ada request ajax maka yang direturn adalah datatables
+          if ($request->ajax()) {
+              return Datatables::of($company)
+                  ->addIndexColumn()
+                  ->make(true);
+          }
+  
+          return view('user.company.companyuser', compact('company'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
