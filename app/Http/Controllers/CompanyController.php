@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCompanyRequest;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use Yajra\DataTables\Facades\DataTables;
+use Auth;
 
 class CompanyController extends Controller
 {
@@ -21,36 +22,32 @@ class CompanyController extends Controller
           //medapatkan semua data company
           $company = Company::all();
           //jika ada request ajax maka yang direturn adalah datatables
-          if ($request->ajax()) {
-              return Datatables::of($company)
-                  ->addIndexColumn()
-                  ->addColumn('action', function ($row) {
-                      //button edit dan hapus
-                      $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="mr-1 edit btn btn-primary btn-sm editCompany"><i class="fa fa-edit"></i></a>';
-  
-                      $btn = $btn . ' <a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="btn btn-danger btn-sm deleteCompany"><i class="fa fa-trash"></i></a>';
-  
-                      return $btn;
-                  })
-                  ->rawColumns(['action'])
-                  ->make(true);
-          }
-  
-          return view('user.company.company', compact('company'));
-    }
-
-    public function view_user(Request $request)
-    {
-          //medapatkan semua data company
-          $company = Company::all();
-          //jika ada request ajax maka yang direturn adalah datatables
-          if ($request->ajax()) {
-              return Datatables::of($company)
-                  ->addIndexColumn()
-                  ->make(true);
-          }
-  
-          return view('user.company.companyuser', compact('company'));
+          if(Auth::user()->role == "admin"){
+            if ($request->ajax()) {
+                return Datatables::of($company)
+                    ->addIndexColumn()
+                    ->addColumn('action', function ($row) {
+                        //button edit dan hapus
+                        $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="mr-1 edit btn btn-primary btn-sm editCompany"><i class="fa fa-edit"></i></a>';
+    
+                        $btn = $btn . ' <a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="btn btn-danger btn-sm deleteCompany"><i class="fa fa-trash"></i></a>';
+    
+                        return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+            }
+    
+            return view('user.company.company', compact('company'));
+        }else{
+            if ($request->ajax()) {
+                return Datatables::of($company)
+                    ->addIndexColumn()
+                    ->make(true);
+            }
+    
+            return view('user.company.companyuser', compact('company'));
+        }
     }
 
     /**

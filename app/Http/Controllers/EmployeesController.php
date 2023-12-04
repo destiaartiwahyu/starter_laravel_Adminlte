@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Employees;
 use App\Models\Company;
 use Yajra\DataTables\Facades\DataTables;
+use Auth;
 
 class EmployeesController extends Controller
 {
@@ -21,46 +22,42 @@ class EmployeesController extends Controller
          //medapatkan semua data employee dan company yang berkaitan
          $employee = Employees::with('Company');
          //jika ada request ajax maka yang direturn adalah datatables
-         if ($request->ajax()) {
-             return Datatables::of($employee)
-                 ->addColumn('company_name', function($employee)
-                 {
-                    return $employee->Company->name;
-                 })
-                 ->addIndexColumn()
-                 ->addColumn('action', function ($row) {
-                     //button, edit dan hapus                
-                     $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="mr-1 edit btn btn-primary btn-sm editEmployee"><i class="fa fa-edit"></i></a>';
- 
-                     $btn = $btn . ' <a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="btn btn-danger btn-sm deleteEmployee"><i class="fa fa-trash"></i></a>';
- 
-                     return $btn;
-                 })
-                 ->rawColumns(['action'])
-                 ->make(true);
-         }
-         $company = Company::get();
-
-         return view('user.employee.employee', compact('employee', 'company'));
-    }
-
-    public function view_user(Request $request)
-    {
-         //medapatkan semua data employee dan company yang berkaitan
-         $employee = Employees::with('Company');
-         //jika ada request ajax maka yang direturn adalah datatables
-         if ($request->ajax()) {
-             return Datatables::of($employee)
-                 ->addColumn('company_name', function($employee)
-                 {
-                    return $employee->Company->name;
-                 })
-                 ->addIndexColumn()
-                 ->make(true);
-         }
-         $company = Company::get();
-
-         return view('user.employee.employeeuser', compact('employee', 'company'));
+         if(Auth::user()->role == "admin"){
+            if ($request->ajax()) {
+                return Datatables::of($employee)
+                    ->addColumn('company_name', function($employee)
+                    {
+                       return $employee->Company->name;
+                    })
+                    ->addIndexColumn()
+                    ->addColumn('action', function ($row) {
+                        //button, edit dan hapus                
+                        $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="mr-1 edit btn btn-primary btn-sm editEmployee"><i class="fa fa-edit"></i></a>';
+    
+                        $btn = $btn . ' <a href="javascript:void(0)" data-id="' . $row->id . '" value="' . $row->id . '" class="btn btn-danger btn-sm deleteEmployee"><i class="fa fa-trash"></i></a>';
+    
+                        return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+            }
+            $company = Company::get();
+   
+            return view('user.employee.employee', compact('employee', 'company'));
+        }else {
+            if ($request->ajax()) {
+                return Datatables::of($employee)
+                    ->addColumn('company_name', function($employee)
+                    {
+                       return $employee->Company->name;
+                    })
+                    ->addIndexColumn()
+                    ->make(true);
+            }
+            $company = Company::get();
+   
+            return view('user.employee.employeeuser', compact('employee', 'company'));
+        }
     }
     /**
      * Show the form for creating a new resource.
