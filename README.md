@@ -28,8 +28,13 @@ two role: admin and user
     email "user@user.com" password "password"
 
 ## Screenshoot
-![Screen Shot 2023-12-04 at 11 57 33](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/d9f99777-1b63-42ce-9d84-de26918e7f5b)
+![Screen Shot 2023-12-04 at 14 35 24](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/d5207c86-c404-46f6-ba8c-3418da6f91e7)
+
+![Screen Shot ![Screen Shot 2023-12-04 at 14 28 55](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/40ee5466-2e34-4fa4-95ab-409a8490a9f2)
+2023-12-04 at 11 57 33](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/d9f99777-1b63-42ce-9d84-de26918e7f5b)
 ![Screen Shot 2023-12-04 at 13 44 57](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/8070c195-99a7-49e1-86cf-651eae4fa522)
 ![Screen Shot 2023-12-04 at 11 58 17](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/034781e1-0bcd-441b-be78-7bb8731b1206)
 ![Screen Shot 2023-12-04 at 11 57 46](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/6ec8960e-1dba-4150-94bd-a6dacbca4ef4)
 ![Screen Shot 2023-12-04 at 11 57 39](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/2051a646-bd0b-498b-94e6-132bf62b5a3b)
+![Screen Shot 2023-12-04 at 14 28 49](https://github.com/destiaartiwahyu/starter_laravel_Adminlte/assets/105256541/b76ff131-5f66-4b65-ae0d-33bb5c37244e)
+
