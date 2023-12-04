@@ -147,7 +147,7 @@
                 type: "DELETE",
                 url: 'employee/'+ id,
                 success: function(data) {
-                    $('#modal-delete-form').modal('hide');
+                    $('#modal-delete-employee-form').modal('hide');
                     $('.table').DataTable().draw();
                 },
                 error: function(data) {
@@ -163,7 +163,7 @@
             console.log("id", id);
             $.get('employee/' + id +'/edit', function (data) {
                 $('.modal-title').text('Delete Employee');
-                $("#modal-delete-form").modal('show');
+                $("#modal-delete-employee-form").modal('show');
                 $('#id').val(data.id);
             })
         });
