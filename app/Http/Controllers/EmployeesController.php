@@ -44,6 +44,24 @@ class EmployeesController extends Controller
          return view('user.employee.employee', compact('employee', 'company'));
     }
 
+    public function view_user(Request $request)
+    {
+         //medapatkan semua data employee dan company yang berkaitan
+         $employee = Employees::with('Company');
+         //jika ada request ajax maka yang direturn adalah datatables
+         if ($request->ajax()) {
+             return Datatables::of($employee)
+                 ->addColumn('company_name', function($employee)
+                 {
+                    return $employee->Company->name;
+                 })
+                 ->addIndexColumn()
+                 ->make(true);
+         }
+         $company = Company::get();
+
+         return view('user.employee.employeeuser', compact('employee', 'company'));
+    }
     /**
      * Show the form for creating a new resource.
      *
