@@ -10,6 +10,7 @@
 ## How Run this Project
 1. cp .env.example .env
 2. php artisan key:generate
+3. create new db and set in .env
 3. run migration => php artisan migrate
 4. run seeder and factory => php artisan db:seed
 5. or run in once number 3 and 4 with php artisan migrate:refresh --seed
